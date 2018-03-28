@@ -1,20 +1,28 @@
 var express = require('express');
 var router = express.Router();
-var controller = require('../controllers/login-controller.js');
 const passport = require('passport');
 
 
-router.post('/login', controller.login_post);
+router.post('/login', (req , res) =>{
+  res.send('NOT IMPLEMENTED')
+})
 
 // auth logout
-router.get('/logout', controller.logout_get);
+router.get('/logout', (req, res) =>{
+  res.send('NOT IMPLEMENTED')
+})
 
 // auth with google+
-router.get('/twitter', controller.twitter_get);
+router.get('/twitter',  passport.authenticate('twitter', {
+  scope: ['profile']
+  })
+)
+
 
 //callback route for google to redirect too
-router.get('/twitter/redirect', controller.twitter_redirect)
-
+router.get('/twitter/redirect', passport.authenticate('twitter'), (req, res) => {
+  res.redirect('/')
+});
 
 module.exports = router;
 

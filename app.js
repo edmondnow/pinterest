@@ -2,15 +2,17 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+var cookieSession = require('cookie-session');
 var bodyParser = require('body-parser');
 var keys = require('./config/keys');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 var session = require('express-session');
 var login_routes = require('./routes/login-routes');
 var main_routes = require('./routes/main-routes');
-var MongoStore = require('connect-mongo')(session);
+var passport = require('passport')
+const passportSetup = require('./config/passport-settings');
 
 var app = express();
 
@@ -25,13 +27,10 @@ mongoose.connection.once('open', function(){
 });
 
 //use sessions for tracking logins
-app.use(session({
-  secret: keys.cookie,
-  resave: true,
-  saveUninitialized: false,
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection
-  })
+app.use(cookieSession({
+  name: 'session',
+  maxAge: 24*60*60*1000,
+  keys: [keys.cookie]
 }));
 
 
@@ -44,10 +43,12 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use('/', login_routes);
+
+app.use('/auth', login_routes);
 app.use('/', main_routes);
 
 // catch 404 and forward to error handler

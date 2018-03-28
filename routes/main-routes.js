@@ -1,12 +1,30 @@
 var express = require('express');
 var router = express.Router();
-var controller = require('../controllers/main-controller');
+const passport = require('passport');
 
-/* GET home page. */
-router.get('/', controller.index_get);
 
-router.get('/picture', controller.picture_get);
+router.get('/', function(req, res){
+  if(req.session){
+    var user = req.session.passport.user;
+    res.render('index', {title: 'Other-Wordly', session: true});
+  } else{
+    res.render('index', {session: false})
+  }
+  
+})
 
-router.post('/', controller.picture_post);
+router.get('/shareboard', function(req, res){
+  if(req.session){
+    var user = req.session.passport.user;
+    res.render('board', {title: 'Other-Wordly', session: true});
+  } else{
+    res.render('index', {session: false})
+  }
+  
+})
+
 
 module.exports = router;
+
+
+

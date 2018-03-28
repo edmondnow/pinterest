@@ -32,11 +32,11 @@ html
                 span.sr-only (current)
             if session
               li.nav-item
-                a.nav-link(href='/picture')
+                a.nav-link(href='/shareboard')
                   | My Shareboard
                   span.sr-only (current)
               li.nav-item
-                a.nav-link(href='/#trade')
+                a.nav-link(href='/')
                   | All shares
                   span.sr-only (current)
           ul.navbar-nav.mr-auto.usernav
@@ -51,7 +51,7 @@ html
                   span.sr-only (current)
             else
               li.nav-item
-                a.nav-link(href='/login')
+                a.nav-link(href='/auth/twitter')
                   |Login
                   span.sr-only (current)
               li.nav-item

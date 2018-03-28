@@ -14,3 +14,41 @@
 h6 {
   font-family: 'Orbitron', sans-serif;
 }
+
+
+/* Brick formatting */
+
+
+
+.brick {
+  background: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  border-radius: 3px;
+  color: #333;
+  border: none;
+}
+
+
+.brick img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.brick h3, .brick h5 {
+  text-shadow: none;
+}
+
+
+.free-wall {
+  margin: 15px;
+}
+.brick {
+  width: 221.2px;
+}
+
+.brick img {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}

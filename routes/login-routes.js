@@ -3,14 +3,14 @@ var router = express.Router();
 const passport = require('passport');
 
 
-router.post('/login', (req , res) =>{
-  res.send('NOT IMPLEMENTED')
-})
 
 // auth logout
-router.get('/logout', (req, res) =>{
-  res.send('NOT IMPLEMENTED')
-})
+router.get('/logout', (req, res) => {
+    // handle with passport
+    req.session = null;
+    req.logout();//passport method
+    res.redirect('/');
+});
 
 // auth with google+
 router.get('/twitter',  passport.authenticate('twitter', {

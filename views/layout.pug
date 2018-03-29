@@ -9,9 +9,10 @@ html
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
     script(src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js')
     // External Styles
-    link(href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet")
-    link(href='https://fonts.googleapis.com/css?family=Orbitron', rel='stylesheet')
+    link(href="https://fonts.googleapis.com/css?family=Faster+One|Orbitron|Zilla+Slab" rel="stylesheet")
     link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+
     //Internal
     script(src='/javascripts/layout.js')
     script(src='/javascripts/freewall.js')
@@ -35,16 +36,16 @@ html
             if session
               li.nav-item
                 a.nav-link(href='/shareboard')
-                  | My Shareboard
+                  | My Worlds
                   span.sr-only (current)
               li.nav-item
-                a.nav-link(href='/')
+                a.nav-link(href='/#shares')
                   | All shares
                   span.sr-only (current)
           ul.navbar-nav.mr-auto.usernav
             if session
               li.nav-item
-                a.nav-link(href="/user")
+                a.nav-link(href="/shareboard")
                   | #{username}
                   span.sr-only (current)
               li.nav-item
@@ -54,11 +55,8 @@ html
             else
               li.nav-item
                 a.nav-link(href='/auth/twitter')
+                  i.fa.fa-twitter
                   |Login
-                  span.sr-only (current)
-              li.nav-item
-                a.nav-link(href='/sign-up')
-                  |Sign-up
                   span.sr-only (current)
     block content
     block foot

@@ -11,29 +11,55 @@
   margin-bottom: 60px;
 }
 
-h6 {
+h1, h6, h3 {
   font-family: 'Orbitron', sans-serif;
+  text-shadow: 1px 1px black;
 }
 
+.marginer {
+  margin: 40px 0px;
+}
+
+
+
+hr{
+  margin-top: 30px;
+  color:#454545;
+  border: 4px solid #454545;
+  width: 125%;
+  position: relative;
+  right: 21px;
+
+}
 
 /* Brick formatting */
 
-
-
-.brick {
-  background: white;
+.formPic{
+  background: #56A59C;
+  padding: 20px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
   border-radius: 3px;
-  color: #333;
+  color: black;
+
+}
+
+.brick {
+  background: #56A59C;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  border-radius: 3px;
+  color: white;
+  text-shadow: 1px 1px 2px gray;
   border: none;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+    -webkit-transition: box-shadow 0.2s ease-in-out;
+  -moz-transition: box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 
-.brick img {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-}
+
 
 .brick h3, .brick h5 {
   text-shadow: none;
@@ -41,14 +67,93 @@ h6 {
 
 
 .free-wall {
-  margin: 15px;
+  margin: 0 auto !important;
 }
 .brick {
-  width: 221.2px;
+  width: 300px;
+  height: 200px;
 }
 
 .brick img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 150px;
+  display: block;
   margin: 0px;
   padding: 0px;
   display: block;
+  margin-bottom: 10px;
+  border-bottom: 4px solid #454545 !important;
+
+}
+
+.brick:hover{
+  box-shadow: 0 0px 8px 0 rgba(62, 249, 228, 0.33);
+}
+
+.desc{
+  text-align: center;
+  margin-bottom: 60px;
+  font-family: 'Zilla Slab', serif;
+}
+.fa-times-circle:hover {
+  color: #DB0300;
+  text-shadow: 0px 0px 2px black;
+}
+
+.latest {
+  max-width: 100%;
+  width: 100%;
+  max-height: 80%;
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  margin-bottom: 10px;
+  border-bottom: 4px solid #454545 !important;
+  -webkit-transition: box-shadow 0.2s ease-in-out;
+  -moz-transition: box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.latest:hover{
+  box-shadow: 0 0px 8px 0 rgba(62, 249, 228, 0.33);
+
+}
+.latest-brick {
+  background: #56A59C;
+  height: 50%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  border-radius: 3px;
+  color: white;
+  text-shadow: 1px 1px 2px gray;
+  border: none;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.hidden{
+  display: none;
+  visibility: hidden;
+}
+
+.hiddenbtn{
+    position: absolute;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    top: 5%;
+    left: 0%;
+    color: white;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .content-container {
+  padding: 20px !important;
+
+  }
 }

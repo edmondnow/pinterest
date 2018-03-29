@@ -1,7 +1,115 @@
-
 .content-container {
   color: white;
   background-color: #454545;
   padding: 60px !important;
+  min-height: 85% !important;
+  text-align: center;
+
 }
 
+.title {
+  text-align: center;
+  margin: 60px 0px !important;
+}
+
+.desc {
+  max-width: 60%;
+  margin: 0 auto;
+  font-family: 'Zilla Slab', serif;
+}
+
+
+
+.brick {
+  background: #56A59C;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  border-radius: 3px;
+  color: white;
+  text-shadow: 1px 1px 2px gray;
+  border: none;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+    -webkit-transition: box-shadow 0.2s ease-in-out;
+  -moz-transition: box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+
+
+
+.brick h3, .brick h5 {
+  text-shadow: none;
+}
+
+
+.free-wall {
+  margin: 0 auto !important;
+}
+.brick {
+  width: 300px;
+  height: 200px;
+}
+
+.brick img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 150px;
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  margin-bottom: 10px;
+  border-bottom: 4px solid #454545 !important;
+
+}
+
+.brick:hover{
+  box-shadow: 0 0px 8px 0 rgba(62, 249, 228, 0.33);
+}
+
+.hidden{
+  display: none;
+  visibility: hidden;
+}
+
+.hiddenbtn{
+    position: absolute;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    top: 5%;
+    left: 0%;
+    color: white;
+}
+
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 1px 1px black;
+  margin-top: 60px !important;
+}
+
+.marginer {
+  margin-bottom: 60px;
+}
+
+
+.btn {
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .content-container {
+  padding: 20px !important;
+
+  }
+.desc {
+  max-width: 80%;
+}
+
+
+
+}

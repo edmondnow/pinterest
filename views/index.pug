@@ -1,7 +1,25 @@
 extends layout
 append head
-  link(href="/stylesheets/index.css" rel="stylesheet")
+	link(href="/stylesheets/index.css" rel="stylesheet")
+	script(src='/javascripts/index.js')
 block content
-  .container-fluid.content-container
-      h1= title
-      p asdsads
+	.container-fluid.content-container
+		h1.title= title
+		p.desc Lorem ipsum dolor amet cardigan swag mustache unicorn live-edge etsy fam green juice plaid. Kinfolk fixie man bun whatever kombucha synth ugh flannel readymade vexillologist cornhole live-edge stumptown kickstarter.
+		if session
+			button.btn.btn-info(href="/shareboard") Add world
+		else 
+			button.btn.btn-info(href="auth/twitter") Sign-in with Twitter
+				i.fa.fa-twitter
+		section#shares
+		h2 Other-Worldlies
+		p.desc.marginer Check out the other-worldlies submitted.
+		if pics
+			.free-wall#freewall
+				each pic in pics
+					.brick
+						a(href=pic.src)
+							img(src=pic.src, alt=pic.name, onError="this.onerror=null;this.src='/images/error.gif';") 
+						p=pic.name
+		else 
+			| No pics in the database

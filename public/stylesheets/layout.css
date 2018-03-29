@@ -33,18 +33,22 @@ a:hover {
 }
 .navbar-brand {
  font-family: 'Faster One', cursive;
-  text-shadow: 2px 2px #04FFF2;
+  text-shadow: 2px 2px #56A59C;
 }
 
 h1{
   font-family: 'Faster One', cursive;
-  text-shadow: 2px 2px #04FFF2;
+  text-shadow: 2px 2px #56A59C;
 }
 
 .container{
   padding: 0px !important;
 }
 
+nav {
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
 
 .footer-container{
   color: white;
@@ -71,3 +75,11 @@ i {
 
 }
 
+
+
+@media only screen and (max-width: 600px) {
+nav {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+}

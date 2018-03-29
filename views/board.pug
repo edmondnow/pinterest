@@ -4,25 +4,43 @@ append head
 	script(src="/javascripts/board.js")
 block content
 	.container-fluid.content-container
-		h1.title= subtitle
+		h1.title.marginer= subtitle
+		p.desc Lorem ipsum dolor amet cardigan swag mustache unicorn live-edge etsy fam green juice plaid. Kinfolk fixie man bun whatever kombucha.
 		.row
 			.col-md-6
-				form(method="post" action="/pic")
+				h6.marginer Submit other-wordly
+				form.formPic(method="post" action="/pic")
 					.form-group
-						label(for='source') Link to your image.
+						label(for='source') Link to your image
 						input#source.form-control(type='text', name="src", placeholder='http://bestpics.com/alienlandscape.jpg')
 						small#srcHelp.form-text.text-muted If the link is broken, we will replace it with a placeholder. 
 					.form-group
-						label(for='exampleInputPassword1') Description
-						input#desciption.form-control(type='text', name="description", placeholder='Alien landscape...')
+						label(for='exampleInputPassword1') Name
+						input#desciption.form-control(type='text', name="name", placeholder='Alien landscape...')
+						hr
 					button.btn.btn-info(type='submit') Submit
 			.col-md-6
-				h6 Your Image
-				h1 Your Other-Worldlies
+				h6.marginer Latest Image
+				if lastPic
+					.latest-brick
+						a(href=lastPic.src)
+							img.latest(src=lastPic.src, alt=lastPic.name, onError="this.onerror=null;this.src='/images/error.gif';") 
+						h3=lastPic.name
+
+				else 
+					| You have not added any pictures yet.
+		h3.marginer Your Other-Worldlies		
 		if pics
 			.free-wall#freewall
 				each pic in pics
-					.brick
-						img(src=pic.src, alt=pic.description)
+						.brick
+							form.hidden(action="/delete" method="post" id=pic._id) 
+								input(type="hidden",  name="_id", value=pic._id)
+							button.hiddenbtn(type="submit" form=pic._id)
+								i.fa.fa-times-circle
+							a(href=pic.src)
+								img(src=pic.src, alt=pic.name, onError="this.onerror=null;this.src='/images/error.gif';") 
+							p=pic.name
+							
 		else 
 			| You have not added any pictures yet.

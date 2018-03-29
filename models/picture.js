@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 var PictureSchema = new Schema({
   src: {type: String, required: true},
   owner: {type: Schema.ObjectId, ref: 'User', required: true},
-  description: String
+  name: String
 });
 
 var Picture = mongoose.model('Picture', PictureSchema);

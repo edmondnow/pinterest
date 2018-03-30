@@ -138,6 +138,11 @@ hr{
   visibility: hidden;
 }
 
+button:focus {
+  outline: none;
+
+}
+
 .hiddenbtn{
     position: absolute;
     background-color: Transparent;

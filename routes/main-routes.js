@@ -37,7 +37,7 @@ router.get('/shareboard', function(req, res){
         lastPic = false;
       }
       
-      res.render('board', {title: 'Other-Wordly', subtitle: 'Shareboard', session: true, pics: pics, lastPic: lastPic, username: userData.username});
+      res.render('board', {title: 'Other-Wordly', subtitle: 'My Worlds', session: true, pics: pics, lastPic: lastPic, username: userData.username});
     })
     
   } else{
@@ -57,7 +57,6 @@ router.post('/pic', function(req, res){
     });
     //
     picture.save((err, picData) =>{
-      console.log(user);
       User.findByIdAndUpdate({_id: user}, {$push: {pics: picture._id}}, {new: true}).populate('pics').exec((err, userData)=>{
         console.log(userData);
         res.redirect('/shareboard')
@@ -72,15 +71,28 @@ router.post('/pic', function(req, res){
 router.post('/delete', (req,res)=>{
   console.log('click')
   if(req.session.length>0){
+    user = req.session.passport.user;
     Picture.findByIdAndRemove({_id: req.body._id}).then((err, obj)=>{
-      res.redirect('/shareboard')
+      User.findByIdAndUpdate({_id:user}, {$pull: {pics: req.body._id}}).then((err, obj)=>{
+        res.redirect('/shareboard')
+      })
     }); 
   } else {
     res.render('index', {session: false});
   }
 });
 
-module.exports = router;
+router.get('/user/:userid', function(req, res){
+  var userid = req.params.userid;
+  console.log('USER ' + userid)
+  User.findById({_id: userid}).populate('pics').exec((err, userData)=>{
+    console.log(userData.pics[0])
+    res.render('profile', {title: 'Other-Wordly', session: true, pics: userData.pics, username: userData.username});
+  });
 
+  
+})
+
+module.exports = router;
 
 

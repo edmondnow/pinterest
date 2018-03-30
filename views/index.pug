@@ -7,9 +7,9 @@ block content
 		h1.title= title
 		p.desc Lorem ipsum dolor amet cardigan swag mustache unicorn live-edge etsy fam green juice plaid. Kinfolk fixie man bun whatever kombucha synth ugh flannel readymade vexillologist cornhole live-edge stumptown kickstarter.
 		if session
-			button.btn.btn-info(href="/shareboard") Add world
+			a.btn.btn-info(href="/shareboard") Add world
 		else 
-			button.btn.btn-info(href="auth/twitter") Sign-in with Twitter
+			a.btn.btn-info(href="auth/twitter") Sign-in with Twitter
 				i.fa.fa-twitter
 		section#shares
 		h2 Other-Worldlies
@@ -19,7 +19,8 @@ block content
 				each pic in pics
 					.brick
 						a(href=pic.src)
-							img(src=pic.src, alt=pic.name, onError="this.onerror=null;this.src='/images/error.gif';") 
-						p=pic.name
+							img(src=pic.src, alt=pic.name, onError="this.onerror=null;this.src='/images/error.gif';")
+						a(href=pic.owner.url) 
+							p #{pic.name} @#{pic.owner.username}
 		else 
 			| No pics in the database

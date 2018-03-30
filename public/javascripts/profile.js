@@ -1,4 +1,3 @@
-
 var wall = new Freewall("#freewall");
 wall.fitWidth()
 wall.reset({
@@ -16,5 +15,4 @@ wall.container.find('.brick img').load(function() {
 });
 
 
-$("#home").attr('class','nav-item')
 

@@ -16,4 +16,3 @@ wall.container.find('.brick img').load(function() {
 });
 
 
-

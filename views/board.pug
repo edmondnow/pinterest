@@ -20,7 +20,7 @@ block content
 						hr
 					button.btn.btn-info(type='submit') Submit
 			.col-md-6
-				h6.marginer Latest Image
+				h6.marginer Latest World
 				if lastPic
 					.latest-brick
 						a(href=lastPic.src)
@@ -33,14 +33,14 @@ block content
 		if pics
 			.free-wall#freewall
 				each pic in pics
-						.brick
-							form.hidden(action="/delete" method="post" id=pic._id) 
-								input(type="hidden",  name="_id", value=pic._id)
-							button.hiddenbtn(type="submit" form=pic._id)
-								i.fa.fa-times-circle
-							a(href=pic.src)
-								img(src=pic.src, alt=pic.name, onError="this.onerror=null;this.src='/images/error.gif';") 
-							p=pic.name
+					.brick
+						form.hidden(action="/delete" method="post" id=pic._id) 
+							input(type="hidden",  name="_id", value=pic._id)
+						button.hiddenbtn(type="submit" form=pic._id)
+							i.fa.fa-times-circle
+						a(href=pic.src)
+							img(src=pic.src, alt=pic.name, onError="this.onerror=null;this.src='/images/error.gif';") 
+						p=pic.name
 							
 		else 
 			| You have not added any pictures yet.

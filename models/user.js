@@ -9,6 +9,11 @@ var UserSchema = new Schema({
   pics: [{type: Schema.ObjectId, ref: 'Picture'}]
 });
 
+UserSchema.virtual('url').get(function(req, res){
+  return '/user/' + this._id 
+});
+
+
 var User = mongoose.model('User', UserSchema);
 
 module.exports = User;

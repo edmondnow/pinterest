@@ -1,0 +1,18 @@
+extends layout
+append head
+  link(href="/stylesheets/profile.css" rel="stylesheet")
+  script(src="/javascripts/profile.js")
+block content
+  .container-fluid.content-container
+    h1.title Worlds of #{username}
+    section#shares
+    if pics
+      .free-wall#freewall
+        each pic in pics
+          .brick
+            a(href=pic.src)
+              img(src=pic.src, alt=pic.name, onError="this.onerror=null;this.src='/images/error.gif';")
+              p=pic.name
+              
+    else 
+      | No pics in the database

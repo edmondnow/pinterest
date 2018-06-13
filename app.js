@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieSession = require('cookie-session');
 var bodyParser = require('body-parser');
-var keys = require('./config/keys');
+//var keys = require('./config/keys');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.Promise = global.Promise;
@@ -18,7 +18,7 @@ var app = express();
 
 
 //connect to db
-mongoose.connect(keys.mlab);
+mongoose.connect(`mongodb://${process.env.USER}:${process.env.PASS}@ds121309.mlab.com:21309/other-worldly`);
 
 mongoose.connection.once('open', function(){
   console.log("Connection made. Now for fireworks... ");
@@ -30,7 +30,7 @@ mongoose.connection.once('open', function(){
 app.use(cookieSession({
   name: 'session',
   maxAge: 24*60*60*1000,
-  keys: [keys.cookie]
+  keys: [process.env.COOKIE]
 }));
 
 

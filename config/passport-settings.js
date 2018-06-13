@@ -1,6 +1,6 @@
 const passport = require('passport');
 const TwitterStrategy = require('passport-twitter').Strategy;
-const keys = require('../config/keys');
+//const keys = require('../config/keys');
 const User = require('../models/user');
 
 passport.serializeUser((user, done) => {
@@ -14,8 +14,8 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new TwitterStrategy({
-    consumerKey: keys.key,
-    consumerSecret: keys.secret,
+    consumerKey: process.env.KEY,
+    consumerSecret: process.env.SECRET,
     callbackURL: "/auth/twitter/redirect"
   },
   function(accessToken, refreshToken, profile, cb, done) {
